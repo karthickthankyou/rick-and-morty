@@ -1,0 +1,19 @@
+schema: 'https://rickandmortyapi.com/graphql'
+documents: './src/**/*.graphql'
+overwrite: true
+watch: true
+generates:
+  ./src/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      pureMagicComment: true
+      exposeQueryKeys: true
+      fetcher:
+        endpoint: 'https://rickandmortyapi.com/graphql'
+        fetchParams:
+          headers:
+            Content-Type: application/json
+      exposeFetcher: true

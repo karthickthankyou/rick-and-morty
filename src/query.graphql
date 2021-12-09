@@ -1,0 +1,31 @@
+query getCharacters($page: Int, $filter: FilterCharacter) {
+  characters(page: $page, filter: $filter) {
+    results {
+      id
+      name
+      status
+      species
+    }
+  }
+}
+
+query getLocations($filter: FilterLocation, $page: Int) {
+  locations(filter: $filter, page: $page) {
+    info {
+      count
+      pages
+      next
+      prev
+    }
+    results {
+      id
+      name
+      type
+      dimension
+      created
+      residents {
+        id
+      }
+    }
+  }
+}
